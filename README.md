@@ -6,7 +6,7 @@
 > m1/UnityProject
 
 * Scene
-> m1/UnityProject/Assets/test.unity
+> m1/UnityProject/Assets/tes2t.unity
 
 <img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test1.PNG" width=600 />
 
