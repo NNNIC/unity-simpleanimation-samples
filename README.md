@@ -25,3 +25,6 @@
 <img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif" width=600 />
 
 
+* State machine 
+
+![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/1.PNG)
