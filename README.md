@@ -19,7 +19,7 @@
 > m2/UnityProject
 
 * Scene
-> m2/UnityProject/Assets/test.unity
+> m2/UnityProject/Assets/test3.unity
 
 
 <img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif" width=600 />
