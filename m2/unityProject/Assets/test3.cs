@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class test2 : MonoBehaviour {
+public class test3 : MonoBehaviour {
 
-	public static test2 V;
+	public static test3 V;
 
 	public string m_animation_folder="Assets/UnityChan/Animations";
 
@@ -59,36 +59,23 @@ public class test2 : MonoBehaviour {
 
 	void OnGUI()
 	{
-		if (m_clips == null) return;
-		var num = 12;
-		var open = false;
-		for(var i =0; i<m_clips.Count; i++)
-		{
-			var c = m_clips[i];
-
-			if ( i % num == 0) {
-				GUILayout.BeginHorizontal();
-				open = true;
-			}
-			if (GUILayout.Button(c.name))
-			{
-				m_sanim.CrossFade(c.name,0.2f);
-			}
-			if (i % num == num-1) {
-				GUILayout.EndHorizontal();
-				open = false;
-			}
-		}
-		if (open) {
-				GUILayout.EndHorizontal();
-		}
+		GUILayout.Button("Key F : Forward, Key J : Jump");
 	}
 	#endregion
 
 	#region service
+	string m_curstate=null;
 	public void Kick(string name)
 	{
+		m_curstate = name;
 		m_sanim.CrossFade(name,0.2f);		
+	}
+	public bool IsDone()
+	{
+		var st = m_sanim.GetState(m_curstate);
+		if (st==null) return true;
+		Debug.Log(st.normalizedTime);
+		return (st.normalizedTime >= 1.0f);
 	}
 	#endregion
 }

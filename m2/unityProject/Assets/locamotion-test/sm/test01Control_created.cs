@@ -52,10 +52,12 @@ public partial class test01Control : StateManager {
     {
         if (bFirst)
         {
+            idle_kick();
             set_timeout(3);
             accept_key_reset();
+            accept_forward_key();
         }
-        if (!check_button_or_timeout();) return;
+        if (!check_button_or_timeout_inidle()) return;
         br_WALK(S_WALK);
         br_NEXTIDLE(S_SET_NEXTIDLE);
         if (HasNextState())
@@ -71,13 +73,16 @@ public partial class test01Control : StateManager {
     {
         if (bFirst)
         {
+            walk_kick();
             set_timeout(2);
             accept_key_reset();
+            accept_forward_key();
             accept_jump_key();
         }
+        if (!check_jumpbutton_or_timeout_to_run_inwalk()) return;
         br_RUN(S_RUN);
         br_JUMP(S_JUMP_IN_WALK);
-        br_STOP(S_IDLE);
+        br_IDLE(S_SET_NEXTIDLE);
         if (HasNextState())
         {
             GoNextState();
@@ -111,11 +116,14 @@ public partial class test01Control : StateManager {
     {
         if (bFirst)
         {
+            run_kick();
             accept_key_reset();
+            accept_forward_key();
             accept_jump_key();
         }
+        if (!check_button_inrun()) return;
         br_JUMP(S_JUMP_IN_RUN);
-        br_STOP(S_IDLE);
+        br_IDLE(S_SET_NEXTIDLE);
         if (HasNextState())
         {
             GoNextState();
