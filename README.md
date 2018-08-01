@@ -2,12 +2,17 @@
 
 ## Test1
 
-![]()
+* Project 
+> m1/UnityProject
+
+* Scene
+> m1/UnityProject/Assets/test.unity
+
+![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test1.PNG|width=400)
 
 
 
 ## Test2
-![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif)
 
 ### Unity Project and Scene
 
@@ -15,7 +20,9 @@
 > m2/UnityProject
 
 * Scene
-> m2/UnityProject/test2.unity
+> m2/UnityProject/Assets/test2.unity
 
+
+![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif|width=400)
 
 
