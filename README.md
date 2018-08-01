@@ -8,8 +8,7 @@
 * Scene
 > m1/UnityProject/Assets/test.unity
 
-![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test1.PNG|width=400)
-
+<img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test1.PNG" width=600 />
 
 
 ## Test2
@@ -23,6 +22,6 @@
 > m2/UnityProject/Assets/test2.unity
 
 
-![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif|width=400)
+<img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif" width=600 />
 
 
