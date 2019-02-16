@@ -13,24 +13,6 @@ public partial class test01Control : StateManager {
 
 
     /*
-        S_START
-    */
-    void S_START(bool bFirst)
-    {
-        if (bFirst)
-        {
-            accept_key_reset();
-        }
-        if (!HasNextState())
-        {
-            SetNextState(S_INIT);
-        }
-        if (HasNextState())
-        {
-            GoNextState();
-        }
-    }
-    /*
         S_END
     */
     void S_END(bool bFirst)
@@ -66,70 +48,6 @@ public partial class test01Control : StateManager {
         }
     }
     /*
-        S_WALK
-        Walk
-    */
-    void S_WALK(bool bFirst)
-    {
-        if (bFirst)
-        {
-            walk_kick();
-            set_timeout(2);
-            accept_key_reset();
-            accept_forward_key();
-            accept_jump_key();
-        }
-        if (!check_jumpbutton_or_timeout_to_run_inwalk()) return;
-        br_RUN(S_RUN);
-        br_JUMP(S_JUMP_IN_WALK);
-        br_IDLE(S_SET_NEXTIDLE);
-        if (HasNextState())
-        {
-            GoNextState();
-        }
-    }
-    /*
-        S_SET_NEXTIDLE
-        アイドルを変更
-    */
-    void S_SET_NEXTIDLE(bool bFirst)
-    {
-        if (bFirst)
-        {
-            set_next_idle();
-            accept_key_reset();
-        }
-        if (!HasNextState())
-        {
-            SetNextState(S_IDLE);
-        }
-        if (HasNextState())
-        {
-            GoNextState();
-        }
-    }
-    /*
-        S_RUN
-        走る
-    */
-    void S_RUN(bool bFirst)
-    {
-        if (bFirst)
-        {
-            run_kick();
-            accept_key_reset();
-            accept_forward_key();
-            accept_jump_key();
-        }
-        if (!check_button_inrun()) return;
-        br_JUMP(S_JUMP_IN_RUN);
-        br_IDLE(S_SET_NEXTIDLE);
-        if (HasNextState())
-        {
-            GoNextState();
-        }
-    }
-    /*
         S_INIT
         初期化
     */
@@ -143,6 +61,27 @@ public partial class test01Control : StateManager {
         if (!HasNextState())
         {
             SetNextState(S_IDLE);
+        }
+        if (HasNextState())
+        {
+            GoNextState();
+        }
+    }
+    /*
+        S_JUMP_IN_RUN
+        jump in run
+    */
+    void S_JUMP_IN_RUN(bool bFirst)
+    {
+        if (bFirst)
+        {
+            jump_kick();
+            accept_key_reset();
+        }
+        if (!jump_is_done()) return;
+        if (!HasNextState())
+        {
+            SetNextState(S_RUN);
         }
         if (HasNextState())
         {
@@ -171,21 +110,82 @@ public partial class test01Control : StateManager {
         }
     }
     /*
-        S_JUMP_IN_RUN
-        jump in run
+        S_RUN
+        走る
     */
-    void S_JUMP_IN_RUN(bool bFirst)
+    void S_RUN(bool bFirst)
     {
         if (bFirst)
         {
-            jump_kick();
+            run_kick();
+            accept_key_reset();
+            accept_forward_key();
+            accept_jump_key();
+        }
+        if (!check_button_inrun()) return;
+        br_JUMP(S_JUMP_IN_RUN);
+        br_IDLE(S_SET_NEXTIDLE);
+        if (HasNextState())
+        {
+            GoNextState();
+        }
+    }
+    /*
+        S_SET_NEXTIDLE
+        アイドルを変更
+    */
+    void S_SET_NEXTIDLE(bool bFirst)
+    {
+        if (bFirst)
+        {
+            set_next_idle();
             accept_key_reset();
         }
-        if (!jump_is_done()) return;
         if (!HasNextState())
         {
-            SetNextState(S_RUN);
+            SetNextState(S_IDLE);
         }
+        if (HasNextState())
+        {
+            GoNextState();
+        }
+    }
+    /*
+        S_START
+    */
+    void S_START(bool bFirst)
+    {
+        if (bFirst)
+        {
+            accept_key_reset();
+        }
+        if (!HasNextState())
+        {
+            SetNextState(S_INIT);
+        }
+        if (HasNextState())
+        {
+            GoNextState();
+        }
+    }
+    /*
+        S_WALK
+        Walk
+    */
+    void S_WALK(bool bFirst)
+    {
+        if (bFirst)
+        {
+            walk_kick();
+            set_timeout(2);
+            accept_key_reset();
+            accept_forward_key();
+            accept_jump_key();
+        }
+        if (!check_jumpbutton_or_timeout_to_run_inwalk()) return;
+        br_RUN(S_RUN);
+        br_JUMP(S_JUMP_IN_WALK);
+        br_IDLE(S_SET_NEXTIDLE);
         if (HasNextState())
         {
             GoNextState();
