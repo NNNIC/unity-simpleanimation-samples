@@ -1,32 +1,17 @@
 # unity-simpleanimation-samples
 
-See [StateGo](https://statego.programanic.com/index-e.html)
+Updated for Unity 2020.1.
+And Upgraded StateGo Data Format.
 
-## Test1
-
-* Project 
-> m1/UnityProject
-
-* Scene
-> m1/UnityProject/Assets/tes2t.unity
-
-<img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test1.PNG" width=600 />
+See [StateGo](https://statego.programanic.com/)
 
 
-## Test2
 
-### Unity Project and Scene
+# Scene
 
-* Project 
-> m2/UnityProject
+Test4
 
-* Scene
-> m2/UnityProject/Assets/test3.unity
+# Video
 
+https://t.co/egcCVH7kza?amp=1
 
-<img src="https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/test.gif" width=600 />
-
-
-* State machine 
-
-![](https://github.com/NNNIC/unity-simpleanimation-samples/raw/master/1.PNG)
