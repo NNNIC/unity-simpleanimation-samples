@@ -16,6 +16,8 @@ public class test2 : MonoBehaviour {
 
 	public List<AnimationClip> m_clips;
 
+    public GUISkin m_skin;
+
 	#if UNITY_EDITOR
 	[ContextMenu("Refresh Animation Clips")]
 	void SetupSimpleAnimationComponent()
@@ -59,6 +61,7 @@ public class test2 : MonoBehaviour {
 
 	void OnGUI()
 	{
+        GUI.skin = m_skin;
 		if (m_clips == null) return;
 		var num = 12;
 		var open = false;

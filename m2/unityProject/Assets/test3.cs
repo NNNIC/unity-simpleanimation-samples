@@ -30,31 +30,24 @@ public class test3 : MonoBehaviour {
 		var clips = (List<AnimationClip>)fi.GetValue(null);
 
 		m_clips = clips;
-		// foreach(var c in clips)
-		// {
-		// 	Debug.Log(c.name);
-		// 	m_sanim.AddState(c,c.name);
-		// }
 	}
 
-	[ContextMenu("Setup2")]
-	void SetupSimpleAnimationComponent2()
-	{
-		foreach(var c in m_clips)
-		{
-			m_sanim.AddState(c, c.name);
-		}
-	}
 	#endif
 
 	#region Framework
 	void Start()
 	{
 		V = this;
+        //var r = GetComponent<Rigidbody>();
+        //r.constraints = RigidbodyConstraints.FreezeAll;
+             
 		foreach(var c in m_clips)
 		{
 			m_sanim.AddState(c, c.name);
 		}
+        transform.position = Vector3.zero;
+        m_sanim.Play("WAIT00");
+        //r.constraints = RigidbodyConstraints.None;
 	}
 
 	void OnGUI()
